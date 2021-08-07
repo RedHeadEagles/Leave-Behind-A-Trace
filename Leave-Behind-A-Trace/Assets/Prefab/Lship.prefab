@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3019526981543142184}
   m_Layer: 0
   m_Name: Lship
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19eb88d547b2bca45943f9c777220b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   health: 25
-  cannonball: {fileID: 8683113658191757085, guid: fcdf8d6eb0db93948942495456caed60,
+  cannonball: {fileID: 6881376503785487192, guid: 40fc039f5ad82884db0a6beae4c020f2,
     type: 3}
   mast: {fileID: 3193696144217431830, guid: cea83216b58b1824a9df5b62f493b4ba, type: 3}
   speed: 1

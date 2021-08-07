@@ -19,7 +19,7 @@ public class LeftLShip : MonoBehaviour
             if (Random.Range(0, 100000000) % 20 == 0)
             {
                 timer++;
-                Instantiate(cannonball, transform.localPosition + new Vector3(1.23f, 0), Quaternion.identity);
+                Destroy(Instantiate(cannonball, transform.localPosition + new Vector3(1.23f, 0), Quaternion.identity),10);
             }
         }
         else
