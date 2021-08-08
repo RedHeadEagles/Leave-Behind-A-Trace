@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
             Instantiate(GO);
         }
         if (progress.transform.localPosition.x >= 9f)
-            SceneManager.LoadScene("pirateBoss");
+            SceneManager.LoadScene(2);
         if(Random.Range(0, 1000000) % 100 == 0 && amountShip > 0)
         {
             switch(Random.Range(0,3))

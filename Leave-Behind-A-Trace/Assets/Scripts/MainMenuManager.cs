@@ -18,7 +18,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("Pirate");
+        SceneManager.LoadScene(1);
     }
     public void Options()
     {
@@ -26,7 +26,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene(3);
     }
     public void Quit()
     {
