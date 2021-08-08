@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LShipAI : MonoBehaviour
 {
+    public GameObject manager;
     public int health;
     public GameObject cannonball;
     private Rigidbody2D rb2d;
@@ -17,6 +18,7 @@ public class LShipAI : MonoBehaviour
     void Start()
     {
         rb2d = transform.GetComponent<Rigidbody2D>();
+        manager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -24,14 +26,16 @@ public class LShipAI : MonoBehaviour
     {
         if(health == 0)
         {
+            manager.GetComponent<LevelManager>().amountShip++;
             Instantiate(mast, transform.localPosition - new Vector3(0, 2), Quaternion.identity);
+            Destroy(gameObject);
         }
         if (timer % 75 == 0)
         {
             if (Random.Range(0, 100000000) % 20 == 0)
             {
                 timer++;
-                Instantiate(cannonball, transform.localPosition - new Vector3(0, 1.23f), Quaternion.identity);
+                Destroy(Instantiate(cannonball, transform.localPosition - new Vector3(0, 1.23f), Quaternion.identity),10);
             }
         }
         else
@@ -47,6 +51,18 @@ public class LShipAI : MonoBehaviour
         {
             transform.localPosition -= new Vector3(speed * Time.deltaTime, 0);
             movingRight = !(transform.localPosition.x > xMin);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Projectile")
+        {
+            health--;
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            movingRight = !movingRight;
         }
     }
 }
